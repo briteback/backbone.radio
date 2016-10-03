@@ -1,9 +1,9 @@
-import _ from 'underscore';
-import Backbone from 'backbone';
+import _ from 'lodash';
+import { Events } from 'backbone';
 
-var previousRadio = Backbone.Radio;
+//var previousRadio = Backbone.Radio;
 
-var Radio = Backbone.Radio = {};
+//var Radio = Backbone.Radio = {};
 
 Radio.VERSION = '<%= version %>';
 
@@ -11,10 +11,10 @@ Radio.VERSION = '<%= version %>';
 // webapp. After loading the new version, call `noConflict()` to
 // get a reference to it. At the same time the old version will be
 // returned to Backbone.Radio.
-Radio.noConflict = function() {
-  Backbone.Radio = previousRadio;
-  return this;
-};
+//Radio.noConflict = function() {
+//  Backbone.Radio = previousRadio;
+//  return this;
+//};
 
 // Whether or not we're in DEBUG mode or not. DEBUG mode helps you
 // get around the issues of lack of warnings when events are mis-typed.
@@ -284,7 +284,7 @@ Radio.Channel = function(channelName) {
   this.channelName = channelName;
 };
 
-_.extend(Radio.Channel.prototype, Backbone.Events, Radio.Requests, {
+_.extend(Radio.Channel.prototype, Events, Radio.Requests, {
 
   // Remove all handlers from the messaging systems of this channel
   reset: function() {
@@ -303,7 +303,7 @@ _.extend(Radio.Channel.prototype, Backbone.Events, Radio.Requests, {
  *
  */
 
-var channel, args, systems = [Backbone.Events, Radio.Requests];
+var channel, args, systems = [Events, Radio.Requests];
 
 _.each(systems, function(system) {
   _.each(system, function(method, methodName) {
