@@ -3,7 +3,7 @@ import { Events } from 'backbone';
 
 //var previousRadio = Backbone.Radio;
 
-//var Radio = Backbone.Radio = {};
+var Radio = {};
 
 Radio.VERSION = '<%= version %>';
 
